@@ -68,6 +68,9 @@ dependencies {
     // ML Kit Image Labeling (for label style/era recognition)
     implementation("com.google.mlkit:image-labeling:17.0.9")
 
+    // Coroutines support for ML Kit Task await
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.9.0")
+
     // Networking
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")

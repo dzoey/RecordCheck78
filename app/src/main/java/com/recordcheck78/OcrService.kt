@@ -63,12 +63,11 @@ class OcrService {
 
     private suspend fun runImageLabeling(image: InputImage): String {
         return try {
-            val result = imageLabeler.process(image).await()
+            val labels = imageLabeler.process(image).await()
             // Filter for relevant labels (art, vintage, record, etc.)
-            val relevantLabels = result.labels
+            labels
                 .filter { it.confidence > 0.5f }
                 .joinToString(", ") { "${it.text} (${(it.confidence * 100).toInt()}%)" }
-            relevantLabels
         } catch (e: Exception) {
             Log.e(TAG, "Image labeling failed", e)
             ""
